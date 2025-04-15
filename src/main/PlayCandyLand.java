@@ -12,6 +12,10 @@
  */
 package edu.gonzaga;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 /**
  * Main program class for launching your team's program. Should include the
  * beginGame, Turn, isGameOver methods note: interacts with Board, CardDeck and
@@ -23,10 +27,20 @@ package edu.gonzaga;
  */
 public class PlayCandyLand {
 
-    public static void main(String[] args) {
-        System.out.println("Hello Team Game");
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final Board board = new Board();
+    private static final CardDeck deck = new CardDeck();
+    private static final List<Player> players = new ArrayList<>();
 
-        // Your code here. Good luck!
+    public static void main(String[] args) {
+        System.out.println("Welcome to Gonzaga Candy Land!");
+        // need to set up players here?
+
+        boolean gameOver = false;
+        while (!gameOver) {
+            // main game logic here? then we just set up gameOver = true when need to break?
+        }
+
     }
 }
 
