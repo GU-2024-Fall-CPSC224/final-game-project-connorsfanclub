@@ -33,6 +33,6 @@ public class Card {
     }
 
     public boolean hasSymbol() {
-        return symbol != null;
+        return symbol != null && !symbol.isEmpty();
     }
 }
