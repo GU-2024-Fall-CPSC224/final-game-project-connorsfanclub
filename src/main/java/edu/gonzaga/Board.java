@@ -1,7 +1,6 @@
 // this file will contain the board class
 // it will create and manage spaces, keep track of where each player is,
 // and determine the next space based on the given card color/symbol
-
 // some attributes/methods we want is:
 // spaces: List<Space> (actual game board)
 // players: List<Player> (players on board)
@@ -10,9 +9,10 @@
 // movePlayerToken(Player p, Space s): moves the player across board
 // getSpace(int index): get the space by position on board
 // note: this class should interact with both space and player classes?
-import java.util.List;
+package edu.gonzaga;
+
 import java.util.ArrayList;
-// need to reference the Space class so there's no errors
+import java.util.List;
 
 public class Board {
 
