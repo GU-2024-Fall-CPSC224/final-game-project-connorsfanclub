@@ -27,17 +27,53 @@ public class Board {
         // can replace this with whatever, I just put stuff
         String[] colors = {"red", "blue", "green", "yellow", "orange", "purple"};
         String[] symbols = {"SaintAls", "Spike", "SkyBridge", "Herek", "Hemmingson"};
+        int colorIndex = 0;
+        int symbolIndex = 0;
 
+        for(int i = 0; i < 50 ; i++){
+            String color = colors[colorIndex];
+            colorIndex = colorIndex + 1;
+            if(colorIndex == colors.length) {
+                colorIndex = 0;
         // implement here
     }
-
+        String symbol = null;
+            if(i % 10 == 0 && symbolIndex < symbols.length){
+                symbol = symbols[symbolIndex];
+                symbolIndex = symbolIndex + 1;
+            }
+        Space space = new Space(i, color, symbol);
+            spaces.add(space);
+        }
+    }   
     public Space getSpace(int index) {
         return spaces.get(index);
     }
 
     // need the getNextSpace public function here?
-    public boolean isEnd(int index) // this is a way to see if the player is at end of board?
-    {
+    public boolean isEnd(int index) // this is a way to see if the player is at end of board? {
         return index >= spaces.size() - 1;
+    }
+
+    public int getNextSpace(String color, int startIndex, boolean isDouble){
+        int count = 0; 
+
+        for(int i = startIndex + 1; i < spaces.size(); i++){
+            Space nextSpace = spaces.get(i);
+            String spaceColor = nextSpace.getSpaceColor();
+
+            if(spaceColor.equals(color)){
+                count = count + 1;
+
+            if(!isDouble && couont == 1){
+                return i;
+            }else if(isDouble && count == 2){
+                return i;
+            }
+    }       
+}
+
+    return spaces.size() - 1;
+
     }
 }
