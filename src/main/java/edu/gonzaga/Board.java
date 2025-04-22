@@ -35,8 +35,8 @@ public class Board {
             colorIndex = colorIndex + 1;
             if(colorIndex == colors.length) {
                 colorIndex = 0;
-        // implement here
     }
+
         String symbol = null;
             if(i % 10 == 0 && symbolIndex < symbols.length){
                 symbol = symbols[symbolIndex];
@@ -105,3 +105,5 @@ public class Board {
 
 
          }
+        }
+        }      
