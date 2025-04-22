@@ -20,10 +20,9 @@ public class Board {
     // do we need another private member variable for the symbols??
 
     public Board() {
-        initializeBoard();
     }
 
-    private void initializeBoard() {
+    public void initializeBoard() {
         // can replace this with whatever, I just put stuff
         String[] colors = {"red", "blue", "green", "yellow", "orange", "purple"};
         String[] symbols = {"SaintAls", "Spike", "SkyBridge", "Herek", "Hemmingson"};
@@ -45,7 +44,13 @@ public class Board {
         Space space = new Space(i, color, symbol);
             spaces.add(space);
         }
-    }   
+    }  
+
+    // Written in for testing purposes 
+    public List<Space> getSpaces() {
+        return spaces;
+    }
+
     public Space getSpace(int index) {
         return spaces.get(index);
     }

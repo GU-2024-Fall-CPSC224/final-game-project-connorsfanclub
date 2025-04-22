@@ -6,6 +6,11 @@ public class BoardTest {
     
     @Test
     void testInitializeBoard() {
+        Board board = new Board();
+        
+        
+
+
 
     }
     
