@@ -51,7 +51,7 @@ public class Board {
     }
 
     // need the getNextSpace public function here?
-    public boolean isEnd(int index) // this is a way to see if the player is at end of board? {
+    public boolean isEnd(int index) {// this is a way to see if the player is at end of board? 
         return index >= spaces.size() - 1;
     }
           public int getNextSpace(String color, int startIndex, boolean isDouble){
@@ -98,7 +98,7 @@ public class Board {
             int currentIndex = player.getPosition();
             String cardColor = card.getColor();
             boolean isDouble = card.isDouble();
-            newIndex = getNextSpace(cardColor, currentIndex, card.isDouble);
+            newIndex = getNextSpace(cardColor, currentIndex, card.isDouble());
         }  
          if(newIndex != -1){
              player.moveTo(newIndex);
