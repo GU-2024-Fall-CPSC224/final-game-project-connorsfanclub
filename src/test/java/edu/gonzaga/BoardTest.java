@@ -32,17 +32,20 @@ public class BoardTest {
     }
     
     @Test 
-    void testIsEnd(int index) {
+    void getNextSpace() {
+        Board board = new Board();
+        board.initializeBoard();
+
+        
+    }
+
+    @Test 
+    void testGetSymbolIndex() {
 
     }
 
     @Test 
-    void testGetSymbolIndex(String symbol) {
-
-    }
-
-    @Test 
-    void testMovePlayerToken(Player player, Card card) {
+    void testMovePlayerToken() {
 
     }
 

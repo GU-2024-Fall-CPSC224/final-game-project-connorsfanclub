@@ -34,7 +34,7 @@ public class Board {
             colorIndex = colorIndex + 1;
             if(colorIndex == colors.length) {
                 colorIndex = 0;
-    }
+            }
 
         String symbol = null;
             if(i % 10 == 0 && symbolIndex < symbols.length){
@@ -59,7 +59,8 @@ public class Board {
     public boolean isEnd(int index) {// this is a way to see if the player is at end of board? 
         return index >= spaces.size() - 1;
     }
-          public int getNextSpace(String color, int startIndex, boolean isDouble){
+
+    public int getNextSpace(String color, int startIndex, boolean isDouble){
         int count = 0; 
 
         for(int i = startIndex + 1; i < spaces.size(); i++){
@@ -69,16 +70,14 @@ public class Board {
             if(spaceColor.equals(color)){
                 count = count + 1;
 
-            if(!isDouble && count == 1){
-                return i;
-            }else if(isDouble && count == 2){
-                return i;
-            }
-    }       
-}
-
+                if(!isDouble && count == 1){
+                    return i;
+                }else if(isDouble && count == 2){
+                    return i;
+                }
+            }       
+        }   
     return spaces.size() - 1;
-
     }
 
     public int getSymbolIndex(String symbol){
@@ -89,11 +88,12 @@ public class Board {
         if (spaceSymbol != null && spaceSymbol.equals(symbol)){
             return i;
         }    
-}
+        }
             return -1;
 
- }
-        public void movePlayerToken(Player player, Card card) {
+    }
+
+    public void movePlayerToken(Player player, Card card) {
         int newIndex;
 
         if(card.hasSymbol()){
@@ -109,6 +109,7 @@ public class Board {
              player.moveTo(newIndex);
 
 
-         }
         }
-        }      
+    }
+
+}      
