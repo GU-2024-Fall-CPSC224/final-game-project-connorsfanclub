@@ -70,6 +70,8 @@ public class Board {
             if(spaceColor.equals(color)){
                 count = count + 1;
 
+                // Single color card, player moves to first match of that color 
+                // double color card, player moves to the second match of that color 
                 if(!isDouble && count == 1){
                     return i;
                 }else if(isDouble && count == 2){
