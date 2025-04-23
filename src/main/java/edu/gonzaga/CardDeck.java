@@ -47,6 +47,7 @@ public class CardDeck {
         }
     }
 
+    // Written in for testing purposes 
     public List<Card> getDeck() {
         return deck;
     }

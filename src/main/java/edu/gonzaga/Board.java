@@ -82,6 +82,7 @@ public class Board {
                 }
             }       
         }   
+        
         // This is meant to represent the end of board 
         // DEBUG: System.out.println("getNextSpace: end of board");
         return spaces.size() - 1;

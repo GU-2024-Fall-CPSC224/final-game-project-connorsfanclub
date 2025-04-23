@@ -18,15 +18,15 @@ public class BoardTest {
         assertEquals(50, spaces.size());
 
         int symbolIndex = 0;
-        // Tests that all 50 colors are in expected color list 
+        // Tests that all 50 colors in expected color list are in correct indexes
         String[] expectedColors = {"red", "blue", "green", "yellow", "orange", "purple"};
+        String[] expectedSymbols = {"SaintAls", "Spike", "SkyBridge", "Herek", "Hemmingson"};
         for (int i =0; i < 50; i++) {
             String expectedColor = expectedColors[ i % expectedColors.length];
             assertEquals(expectedColor, spaces.get(i).getSpaceColor());
         
 
-        // Test that all 50 symbols are in expected symbol list
-            String[] expectedSymbols = {"SaintAls", "Spike", "SkyBridge", "Herek", "Hemmingson"};
+            // Test that all 5 symbols in expected symbol list are in correct indexes 
             String expectedSymbol = null;
             if(i % 10 == 0 && symbolIndex < expectedSymbols.length){
                 expectedSymbol = expectedSymbols[symbolIndex];
@@ -36,9 +36,7 @@ public class BoardTest {
         }
     }
     
-    // Confused on the getNextSpace() function!
-    // why does it return the size of spaces List?
-    // why does it have an if/else loop that does the same thing?
+
     @Test 
     void getNextSpace() {
         Board board = new Board();
