@@ -68,9 +68,7 @@ public class Board {
        for(int i = stardIndex +1; i < spaces.size() ; i++){
            if (spacess.get(i).getSpaceColor().equalsIgnoreCase(color)){
                count = count +1;
-               if(!isDouble && count == 1){
-                   return i;
-               }else if (isDouble && count == 2) {
+               if(!isDouble && count == 1 || isDouble && count == 2)
                    return i;
                }
            }
