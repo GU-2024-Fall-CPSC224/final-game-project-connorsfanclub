@@ -102,7 +102,7 @@ public class Board {
     }
 
     public void movePlayerToken(Player player, Card card) {
-        int newIndex = -1;
+        int newIndex;
 
         if(card.hasSymbol()){
             String symbol = card.getSymbol();
