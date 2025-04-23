@@ -1,11 +1,5 @@
-// this file will contain the card class (individual card drawn during the game)
-// helps to store card date (e.g. color, symbol, etc)
+package edu.gonzaga;
 
-// mainly helper methods to access attributes of card
-// getCardColor
-// getCardSymbol
-// cardHasSymbol
-// note: this class will probably be used mainly by CardDeck
 public class Card {
 
     private String color; // this could be like red, blue, green, whatever we want
@@ -34,5 +28,13 @@ public class Card {
 
     public boolean hasSymbol() {
         return symbol != null && !symbol.isEmpty();
+    }
+
+    @Override
+    public String toString() {
+        if (hasSymbol()) {
+            return "Symbol Card: " + symbol;
+        }
+        return (isDouble ? "Double " : "Single ") + "Color Card: " + color;
     }
 }
