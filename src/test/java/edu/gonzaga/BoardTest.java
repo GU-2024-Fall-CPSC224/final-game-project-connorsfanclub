@@ -41,9 +41,28 @@ public class BoardTest {
     void getNextSpace() {
         Board board = new Board();
         board.initializeBoard();
+        List<Space> spaces = board.getSpaces();
 
         String[] expectedColors = {"red", "blue", "green", "yellow", "orange", "purple"};
-        // Finish when function is clarified
+        Card card = new Card("red", false, null);
+        Player player = new Player("player1", null);
+
+        // Tests (!isDouble & count == 1)
+        int test = board.getNextSpace("red", 0, false);
+        assertEquals(test, 6, "Error, expected 6 but got " + test);
+
+        // Tests (!isDouble & count == 1) through a player position passsed in
+        int test2 = board.getNextSpace("red", player.getPosition(), false);
+        assertEquals(test2, 6, "Error, expected 6 but got " + test2);
+
+        // Tests (isDouble & count == 2) 
+        int test3 = board.getNextSpace("red", 5, true);
+        assertEquals(test3, 12, "Error, expected 12 but got " + test3);
+
+        // Tests end of board 
+        int test4 = board.getNextSpace("blue", 49, false);
+        assertEquals(test4, 49, "Error, expected 49 but got " + test4);
+
     }
 
     @Test 
