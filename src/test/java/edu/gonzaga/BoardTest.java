@@ -3,7 +3,6 @@ package edu.gonzaga;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 public class BoardTest {
@@ -18,10 +17,13 @@ public class BoardTest {
         assertEquals(50, spaces.size());
 
         int symbolIndex = 0;
-        // Tests that all 50 colors in expected color list are in correct indexes
+        
         String[] expectedColors = {"red", "blue", "green", "yellow", "orange", "purple"};
         String[] expectedSymbols = {"SaintAls", "Spike", "SkyBridge", "Herek", "Hemmingson"};
+        
         for (int i =0; i < 50; i++) {
+
+            // Tests that all 50 colors in expected color list are in correct indexes
             String expectedColor = expectedColors[ i % expectedColors.length];
             assertEquals(expectedColor, spaces.get(i).getSpaceColor());
         
@@ -41,10 +43,6 @@ public class BoardTest {
     void getNextSpace() {
         Board board = new Board();
         board.initializeBoard();
-        List<Space> spaces = board.getSpaces();
-
-        String[] expectedColors = {"red", "blue", "green", "yellow", "orange", "purple"};
-        Card card = new Card("red", false, null);
         Player player = new Player("player1", null);
 
         // Tests (!isDouble & count == 1)
@@ -70,32 +68,30 @@ public class BoardTest {
         Board board = new Board();
         board.initializeBoard();
 
-        String[] expectedSymbols = {"SaintAls", "Spike", "SkyBridge", "Herek", "Hemmingson"};
+        // Tests symbol index of first element in Symbols
+        int test = board.getSymbolIndex("Spike");
+        assertEquals(test, 10, "Error, expected 10 but got " + test);
 
-        // Not quite sure this accomplishes what is intended
-        //for (int i = 0; i < expectedSymbols.length; i++) {
-        //    String symbol = expectedSymbols[i];
-        //    int actualIndex = board.getSymbolIndex(symbol);
-        //    assertEquals(i, actualIndex, "Expected symbol " + symbol + " at index " + i + " but got " + actualIndex);
-        //}
-
-        // Checks if pre-set symbol is at expected index from function
-        board.setSpace(5, "red", "Spike");
-        int functionIndex = board.getSymbolIndex("Spike");
-        assertEquals(5, functionIndex, "Expected symbol 'Spike' at index 5 but got " + functionIndex);
+        //Tests symbol index of last element in Symbols 
+        int test2 = board.getSymbolIndex("Hemmingson");
+        assertEquals(test2, 40, "Error, expected 40 but got " + test2);
     }
 
     @Test 
     void testMovePlayerToken() {
         Board board = new Board();
         board.initializeBoard();
-        Card card = new Card("red", false, "Spike");
-        Player player = new Player("One", "red");
+        Player player = new Player("player1", null);
 
+        // Tests moving a player to a symbol
+        Card card = new Card(null, false, "Spike");
         board.movePlayerToken(player, card);
-        board.setSpace(5, "red", "Spike");
+        assertEquals(player.getPosition(), 10, "Error, expected 10 but got " + player.getPosition());
 
-        assertTrue(player.getPosition() == 5, "Error, expected 5 but got " + player.getPosition());
+        // Tests moving a player to a color
+        Card card2 = new Card("blue", false, null);
+        board.movePlayerToken(player, card2);
+        assertEquals(player.getPosition(), 13, "Error, expected 13 but got " + player.getPosition());
     }
 
 }

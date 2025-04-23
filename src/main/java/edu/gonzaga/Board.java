@@ -97,7 +97,7 @@ public class Board {
                 return i;
             }    
         }
-            return -1;
+        return -1;
 
     }
 
@@ -116,12 +116,6 @@ public class Board {
         if(newIndex != -1){
              player.moveTo(newIndex);
         }
-    }
-
-    // Written in for testing purposes
-    public void setSpace(int index, String color, String symbol) {
-        spaces.remove(index);
-        spaces.add(new Space(index, color, symbol));
     }
 
 }      
