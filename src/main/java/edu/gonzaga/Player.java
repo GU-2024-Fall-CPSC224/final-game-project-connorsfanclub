@@ -10,12 +10,13 @@ package edu.gonzaga;
 public class Player {
 
     private String name;
-    // idk how we want to store the token color of the player here?
+    private String color;
     private int position; // position of this particular player on the board
 
-    public Player(String name) {
+    public Player(String name, String color) {
         // constructor (should prob initialize with token color too)
         this.name = name;
+        this.color = color;
         this.position = 0;
     }
 
@@ -32,5 +33,12 @@ public class Player {
         return name;
     }
 
-    // getter for token color here
+    public String getColor() {
+        return color;
+    }
+
+    @Override
+    public String toString() {
+        return name + " (Token: " + color + ") at space " + position;
+    }
 }
