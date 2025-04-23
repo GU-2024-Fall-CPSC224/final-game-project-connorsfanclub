@@ -102,7 +102,7 @@ public class Board {
     }
 
     public void movePlayerToken(Player player, Card card) {
-        int newIndex;
+        int newIndex = -1;
 
         if(card.hasSymbol()){
             String symbol = card.getSymbol();
@@ -113,10 +113,8 @@ public class Board {
             boolean isDouble = card.isDouble();
             newIndex = getNextSpace(cardColor, currentIndex, card.isDouble());
         }  
-         if(newIndex != -1){
+        if(newIndex != -1){
              player.moveTo(newIndex);
-
-
         }
     }
 
