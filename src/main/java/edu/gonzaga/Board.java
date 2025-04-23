@@ -36,12 +36,12 @@ public class Board {
                 colorIndex = 0;
             }
 
-        String symbol = null;
+            String symbol = null;
             if(i % 10 == 0 && symbolIndex < symbols.length){
                 symbol = symbols[symbolIndex];
                 symbolIndex = symbolIndex + 1;
             }
-        Space space = new Space(i, color, symbol);
+            Space space = new Space(i, color, symbol);
             spaces.add(space);
         }
     }  
