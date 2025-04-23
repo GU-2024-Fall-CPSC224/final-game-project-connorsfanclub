@@ -73,12 +73,10 @@ public class Board {
                 System.out.println("DEBUG: getNextSpace: post-count = " + count);
                 // Single color card, player moves to first match of that color 
                 // double color card, player moves to the second match of that color 
-                if(!isDouble && count == 1){
+                if(!isDouble && count == 1 || isDouble && count == 2){
                     System.out.println("getNextSpace: first if state: " + i);
                     return i;
-                }else if(isDouble && count == 2){
-                    System.out.println("getNextSpace: second if state:  " + i);
-                    return i;
+        
                 }
             }       
         }   
