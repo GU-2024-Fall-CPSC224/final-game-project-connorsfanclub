@@ -85,9 +85,9 @@ public class Board {
             Space currentSpace = spaces.get(i);
             String spaceSymbol = currentSpace.getSpaceSymbol();
 
-        if (spaceSymbol != null && spaceSymbol.equals(symbol)){
-            return i;
-        }    
+            if (spaceSymbol != null && spaceSymbol.equals(symbol)){
+                return i;
+            }    
         }
             return -1;
 
@@ -110,6 +110,12 @@ public class Board {
 
 
         }
+    }
+
+    // Written in for testing purposes
+    public void setSpace(int index, String color, String symbol) {
+        spaces.remove(index);
+        spaces.add(new Space(index, color, symbol));
     }
 
 }      
