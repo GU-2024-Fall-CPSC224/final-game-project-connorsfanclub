@@ -69,7 +69,7 @@ public class BoardTest {
         Board board = new Board();
         board.initializeBoard();
         Card card = new Card("red", false, "Spike");
-        Player player = new Player("tester");
+        Player player = new Player("One", "red");
 
         board.movePlayerToken(player, card);
         board.setSpace(5, "red", "Spike");

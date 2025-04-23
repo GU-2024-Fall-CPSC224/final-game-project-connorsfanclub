@@ -68,16 +68,23 @@ public class Board {
             String spaceColor = nextSpace.getSpaceColor();
 
             if(spaceColor.equals(color)){
+                System.out.println("DEBUG: getNextSpace: pre-count = " + count);
                 count = count + 1;
-
+                System.out.println("DEBUG: getNextSpace: post-count = " + count);
+                // Single color card, player moves to first match of that color 
+                // double color card, player moves to the second match of that color 
                 if(!isDouble && count == 1){
+                    System.out.println("getNextSpace: first if state: " + i);
                     return i;
                 }else if(isDouble && count == 2){
+                    System.out.println("getNextSpace: second if state:  " + i);
                     return i;
                 }
             }       
         }   
-    return spaces.size() - 1;
+        // This is meant to represent the end of board 
+        System.out.println("getNextSpace: end of board");
+        return spaces.size() - 1;
     }
 
     public int getSymbolIndex(String symbol){

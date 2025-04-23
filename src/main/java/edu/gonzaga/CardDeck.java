@@ -47,6 +47,10 @@ public class CardDeck {
         }
     }
 
+    public List<Card> getDeck() {
+        return deck;
+    }
+
     public Card drawCard() {
         if (deck.isEmpty()) {
             initializeDeck();
