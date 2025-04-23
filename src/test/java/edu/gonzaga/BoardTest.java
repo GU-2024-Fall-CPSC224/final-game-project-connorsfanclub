@@ -17,17 +17,21 @@ public class BoardTest {
         List<Space> spaces = board.getSpaces();
         assertEquals(50, spaces.size());
 
+        int symbolIndex = 0;
         // Tests that all 50 colors are in expected color list 
         String[] expectedColors = {"red", "blue", "green", "yellow", "orange", "purple"};
         for (int i =0; i < 50; i++) {
             String expectedColor = expectedColors[ i % expectedColors.length];
             assertEquals(expectedColor, spaces.get(i).getSpaceColor());
-        }
+        
 
         // Test that all 50 symbols are in expected symbol list
-        String[] expectedSymbols = {"SaintAls", "Spike", "SkyBridge", "Herek", "Hemmingson"};
-        for (int i = 0; i < 50; i++) {
-            String expectedSymbol = expectedSymbols[ i % expectedSymbols.length];
+            String[] expectedSymbols = {"SaintAls", "Spike", "SkyBridge", "Herek", "Hemmingson"};
+            String expectedSymbol = null;
+            if(i % 10 == 0 && symbolIndex < expectedSymbols.length){
+                expectedSymbol = expectedSymbols[symbolIndex];
+                symbolIndex = symbolIndex + 1;
+            }
             assertEquals(expectedSymbol, spaces.get(i).getSpaceSymbol(), "Error at " + expectedSymbol + " at index " + i);
         }
     }
