@@ -3,6 +3,7 @@ package edu.gonzaga;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
@@ -41,7 +42,10 @@ public class CardDeckTest {
 
     @Test 
     void testDrawCard() {
+        CardDeck cardDeck = new CardDeck();
 
+        // Tests that drawCard() returns a Card object 
+        assertInstanceOf(Card.class, cardDeck.drawCard(), "Error, drawCard() did not return a Card object.");
     }
 
 }
