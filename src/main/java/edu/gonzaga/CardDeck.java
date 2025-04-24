@@ -16,11 +16,20 @@ public class CardDeck {
         shuffle();
     }
 
+    // Written in for testing purposes 
+    public List<Card> CardDeckNonShuffled() {
+        deck = new ArrayList<>();
+        rand = new Random();
+        initializeDeck();
+        return deck;
+    }
+
     private void initializeDeck() {
         deck.clear(); // reset
         String[] colors = {"red", "blue", "green", "yellow", "orange", "purple"};
 
         // color cards creation
+        // adds 12 cards of each color, with four as Double Cards
         for (String color : colors) {
             for (int i = 0; i < 8; i++) {
                 deck.add(new Card(color, false, null)); // single card

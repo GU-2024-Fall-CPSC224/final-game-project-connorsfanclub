@@ -12,15 +12,16 @@ public class CardDeckTest {
 
         // initializeDeck() function is called in constructor 
         CardDeck cardDeck = new CardDeck();
-        List<Card> deck = cardDeck.getDeck();
+        List<Card> deck = cardDeck.CardDeckNonShuffled();
 
         String[] expectedColors = {"red", "blue", "green", "yellow", "orange", "purple"};
+        int count = 0;
         for (int i = 0; i < expectedColors.length; i++) {
-            for (int j = 0; j < 8; j++) {
-                assertEquals(deck.get(j), expectedColors[i], "Expected " + expectedColors[i] + " but got " + deck.get(j));
+            for (int j = 0; j <= 11; j++) {
+                assertEquals(deck.get(count).getColor(), expectedColors[i], "Expected " + expectedColors[i] + " but got " + deck.get(count).getColor() + " at " + i + ", " + j);
+                count += 1;
             }
         } 
-
     }
 
     @Test 
