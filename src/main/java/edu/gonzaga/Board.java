@@ -36,12 +36,12 @@ public class Board {
                 colorIndex = 0;
             }
 
-        String symbol = null;
+            String symbol = null;
             if(i % 10 == 0 && symbolIndex < symbols.length){
                 symbol = symbols[symbolIndex];
                 symbolIndex = symbolIndex + 1;
             }
-        Space space = new Space(i, color, symbol);
+            Space space = new Space(i, color, symbol);
             spaces.add(space);
         }
     }  
@@ -68,22 +68,23 @@ public class Board {
             String spaceColor = nextSpace.getSpaceColor();
 
             if(spaceColor.equals(color)){
-                System.out.println("DEBUG: getNextSpace: pre-count = " + count);
+                // DEBUG: System.out.println("DEBUG: getNextSpace: pre-count = " + count);
                 count = count + 1;
-                System.out.println("DEBUG: getNextSpace: post-count = " + count);
+                // DEBUG: System.out.println("DEBUG: getNextSpace: post-count = " + count);
+                // DEBUG: System.out.println("DEBUG: isDouble = " + isDouble);
+
                 // Single color card, player moves to first match of that color 
                 // double color card, player moves to the second match of that color 
-                if(!isDouble && count == 1){
-                    System.out.println("getNextSpace: first if state: " + i);
+                if((!isDouble) & (count == 1) || (isDouble) & (count == 2)){
+                    // DEBUG: System.out.println("getNextSpace: first if state: " + i);
                     return i;
-                }else if(isDouble && count == 2){
-                    System.out.println("getNextSpace: second if state:  " + i);
-                    return i;
+        
                 }
             }       
         }   
+        
         // This is meant to represent the end of board 
-        System.out.println("getNextSpace: end of board");
+        // DEBUG: System.out.println("getNextSpace: end of board");
         return spaces.size() - 1;
     }
 
@@ -96,7 +97,7 @@ public class Board {
                 return i;
             }    
         }
-            return -1;
+        return -1;
 
     }
 
@@ -112,17 +113,9 @@ public class Board {
             boolean isDouble = card.isDouble();
             newIndex = getNextSpace(cardColor, currentIndex, card.isDouble());
         }  
-         if(newIndex != -1){
+        if(newIndex != -1){
              player.moveTo(newIndex);
-
-
         }
-    }
-
-    // Written in for testing purposes
-    public void setSpace(int index, String color, String symbol) {
-        spaces.remove(index);
-        spaces.add(new Space(index, color, symbol));
     }
 
 }      
