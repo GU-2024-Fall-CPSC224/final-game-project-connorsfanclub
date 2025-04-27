@@ -117,5 +117,5 @@ public class Board {
              player.moveTo(newIndex);
         }
     }
-
+    
 }      

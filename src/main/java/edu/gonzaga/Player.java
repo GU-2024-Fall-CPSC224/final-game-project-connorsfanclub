@@ -41,4 +41,10 @@ public class Player {
     public String toString() {
         return name + " (Token: " + color + ") at space " + position;
     }
+    public void move(int spaces) {
+        this.position += spaces;
+        if (this.position > 19) {  // Ensure player doesn't go beyond the last space
+            this.position = 19;
+        }
+    }
 }

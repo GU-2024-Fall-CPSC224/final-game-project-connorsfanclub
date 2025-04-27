@@ -30,6 +30,7 @@ public class PlayCandyLand {
         // goal of this game entry point is to print a welcome message, call beginGame (sets everythig up)
         // and loops through each player's turn until someone wins (gameOver = true)
         System.out.println("Welcome to Gonzaga Candy Land!");
+        new SplashScreen();
         beginGame();
 
         boolean gameOver = false;
@@ -38,8 +39,13 @@ public class PlayCandyLand {
                 System.out.println("\n " + player.getName() + "'s turn:");
                 gameOver = takeTurn(player);
                 if (gameOver) {
-                    break;
+                    
+                    Player winner = players.get(0);  
+                System.out.println("Winner: " + winner.getName());
+                new WinLooseScreen(players, board); 
+                break; 
                 }
+    
             }
         }
 
@@ -50,9 +56,12 @@ public class PlayCandyLand {
     private static void beginGame() {
         setupPlayers(); // calls function to get names
         board.initializeBoard();
+        
         System.out.println("\nBoard setup complete. Let’s play!");
-    }
 
+         
+    }
+    
     // set up players (2-4) and enter their names
     private static void setupPlayers() {
         int numPlayers;
@@ -84,11 +93,14 @@ public class PlayCandyLand {
 
         if (board.isEnd(player.getPosition())) {
             System.out.println("Finished: " + player.getName() + " has reached Hemmingson and WINS!!");
-            return true; // if they've reached last space -> stops the game
-        }
 
+            return true; // if they've reached last space -> stops the game
+            
+        }
+    
         return false;
 
     }
 
+    
 }

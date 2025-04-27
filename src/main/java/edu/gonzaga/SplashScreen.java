@@ -1,43 +1,50 @@
-// this could be where we write our Java Swing screen for ntro?
-// I don't know if we want another file like GameGUI.java for the board implementation?
 package edu.gonzaga;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JFrame;
-import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
-public class SplashScreen extends JFrame{ 
-    //this is where the Graphic User interface will go
-    JFrame frame; 
-    JTextField textfield; 
-    Font myFont = new Font("Helvetica", Font.BOLD, 30);
+public class SplashScreen extends JFrame {
+    
+    public SplashScreen() {
+        // Set up the splash screen
+        setTitle("Welcome to Gonzaga Candy Land");
+        setSize(600, 400); // Make the window larger
+        setLocationRelativeTo(null); // Center the window
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    public SplashScreen(){
-        // create and configure main frame 
-        frame= new JFrame("GU Candy Land"); 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Close on exit
-        frame.setSize(1280, 720);            // Set window size
-        frame.setLayout(null);              // Use absolute positioning
-        frame.setResizable(false);         // Prevent window resizing
+        // Create the splash screen panel
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+        panel.setBackground(Color.BLUE); // Set the background color to blue
 
-// create and configure text for PlayerName
-        textfield = new JTextField();
-        textfield.setBounds(18, 18, 300, 65);  // Position and size
-        textfield.setFont(myFont);             // Set font
-        textfield.setEditable(false);         // Prevent direct text input
-        textfield.setHorizontalAlignment(JTextField.RIGHT); // Right-align text
+        // Create a label and set the text color to red
+        JLabel label = new JLabel("Welcome to Gonzaga Candy Land!", SwingConstants.CENTER);
+        label.setFont(new Font("Arial", Font.BOLD, 30)); // Increase font size
+        label.setForeground(Color.RED); // Set text color to red
 
+        // Add the label to the panel
+        panel.add(label, BorderLayout.CENTER);
+        add(panel);
 
+        // Make the splash screen visible
+        setVisible(true);
 
+        // Show the splash screen for 2 seconds and then close it
+        try {
+            Thread.sleep(2000); // Display for 2 seconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        dispose(); // Close the splash screen
+    }
 
-
-
-
-
-
-
-
-
-        
+    public static void main(String[] args) {
+        new SplashScreen(); // Create and display the splash screen
     }
 }
