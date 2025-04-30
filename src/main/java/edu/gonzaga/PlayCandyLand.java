@@ -27,12 +27,12 @@ public class PlayCandyLand {
     // Called after names are entered and the game is ready to start
     public static void beginGame() {
          board.initializeBoard(); // Set up board
-         new GameScreen(players, board); // Launch GUI
+        new GameScreen(players, board); // Launch GUI
         System.out.println("Welcome to Gonzaga Candy Land!");
         board.initializeBoard();  // Sets up the board
         deck.shuffle();           // Shuffle cards
          
-        System.out.println("\nBoard setup complete. Let’s play!"); 
+        System.out.println("\nBoard setup complete. Let’s play!");
 
         boolean gameOver = false;
         while (!gameOver) {
@@ -41,7 +41,6 @@ public class PlayCandyLand {
                 gameOver = takeTurn(player);
                 if (gameOver) {
                     System.out.println("Winner: " + player.getName());
-                    
                     break;
                 }
             }

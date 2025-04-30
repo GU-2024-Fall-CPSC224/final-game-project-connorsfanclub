@@ -23,7 +23,7 @@ public class NameInputScreen extends JFrame {
 
     public NameInputScreen() {
         setTitle("Enter Player Names");
-        setSize(400, 200);
+        setSize(600, 400);  // Increased window size
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -32,17 +32,17 @@ public class NameInputScreen extends JFrame {
         panel.setBackground(Color.GRAY);
 
         promptLabel = new JLabel("Enter number of players (2-4):");
-        promptLabel.setBounds(50, 20, 300, 30);
+        promptLabel.setBounds(50, 20, 500, 30);  // Adjusted width to match the bigger window
         promptLabel.setFont(new Font("Arial", Font.BOLD, 16));
         promptLabel.setForeground(Color.WHITE);
         panel.add(promptLabel);
 
         inputField = new JTextField();
-        inputField.setBounds(50, 60, 300, 30);
+        inputField.setBounds(50, 60, 500, 30);  // Adjusted width to match the bigger window
         panel.add(inputField);
 
         JButton submitButton = new JButton("Submit");
-        submitButton.setBounds(150, 100, 100, 30);
+        submitButton.setBounds(250, 100, 100, 30);  // Adjusted button position to fit the new window
         submitButton.addActionListener(e -> handleInput());
         panel.add(submitButton);
 
