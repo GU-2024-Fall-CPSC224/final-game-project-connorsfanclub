@@ -47,7 +47,7 @@ public class CardDeck {
         }
     }
 
-    private void shuffle() {
+    public void shuffle() {
         for (int i = deck.size() - 1; i > 0; i--) {
             int j = rand.nextInt(i + 1);
             Card temp = deck.get(i);

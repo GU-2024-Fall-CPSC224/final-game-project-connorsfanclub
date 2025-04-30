@@ -1,51 +1,75 @@
 package edu.gonzaga;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class SplashScreen extends JFrame {
 
     public SplashScreen() {
         // Set up the splash screen
-        setTitle("Welcome to Gonzaga Candy Land");
-        setSize(600, 400);
-        setLocationRelativeTo(null);
+        setTitle("Welcome to Gonzaga Candy Land!");
+        setSize(600, 400); // Set the size of the window
+        setLocationRelativeTo(null); // Center the window
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Load the image and set it as the background
-        ImageIcon backgroundImage = new ImageIcon("path/to/your/image.jpeg"); // Replace with the actual path to the image
-        JLabel backgroundLabel = new JLabel(backgroundImage);
-        backgroundLabel.setLayout(new BorderLayout()); // Allows adding components over the image
-        backgroundLabel.setOpaque(true);
+        // Load and scale the background image
+        ImageIcon backgroundImageIcon = new ImageIcon("src/main/java/edu/gonzaga/4db728927333728bcb5717cdba3040d8.jpg");
+        Image backgroundImage = backgroundImageIcon.getImage();
+        Image scaledImage = backgroundImage.getScaledInstance(600, 400, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
-        // Create a label with the welcome message
-        JLabel textLabel = new JLabel("Welcome to Gonzaga Candy Land!", SwingConstants.CENTER);
-        textLabel.setFont(new Font("Arial", Font.BOLD, 30));
-        textLabel.setForeground(Color.WHITE); // Ensure text color contrasts with the image
+        // Create a panel with custom painting for the background
+        JPanel panel = new JPanel() {
+            @Override
+            protected void paintComponent(java.awt.Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(scaledIcon.getImage(), 0, 0, this);
+            }
+        };
 
-        // Add the text label over the background image
-        backgroundLabel.add(textLabel, BorderLayout.CENTER);
-        add(backgroundLabel);
+        panel.setLayout(null); // Use null layout for custom positioning
+        panel.setBackground(Color.CYAN); // Fallback color if image fails
 
-        // Make the splash screen visible
+        // Add welcome message
+        JLabel splashLabel = new JLabel(" ", SwingConstants.CENTER);
+        splashLabel.setBounds(100, 100, 400, 40);
+        splashLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        splashLabel.setForeground(Color.BLACK);
+        panel.add(splashLabel);
+
+        // Add Start Game button
+        JButton startButton = new JButton("Start Game");
+        startButton.setBounds(250, 250, 100, 40);
+        startButton.setFont(new Font("Arial", Font.PLAIN, 18));
+        startButton.setBackground(Color.GREEN);
+        startButton.setForeground(Color.BLACK);
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // When the Start Game button is clicked, close the splash screen
+                dispose(); // Close the splash screen
+                new NameInputScreen(); // Open the NameInputScreen
+            }
+        });
+        panel.add(startButton);
+
+        // Add the panel to the frame and display
+        add(panel);
         setVisible(true);
-
-        // Show the splash screen for 2 seconds and then close it
-        try {
-            Thread.sleep(2000); // Display for 2 seconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        dispose(); // Close the splash screen
     }
 
     public static void main(String[] args) {
-        new SplashScreen(); // Create and display the splash screen
+        // Display the SplashScreen first
+        new SplashScreen();
     }
 }

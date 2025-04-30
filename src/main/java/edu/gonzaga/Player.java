@@ -1,50 +1,41 @@
-// this file will contain the player class which:
-// stores players name, token color, and current position on board
-// provides general player info
-// some attributes/methods we may want to include:
-// moveTo(Space s): moves player to a new space
-// getPlayerName: getter for returning players name (also want a setter?)
-// getPosition(): return for current space
 package edu.gonzaga;
 
 public class Player {
-
     private String name;
-    private String color;
-    private int position; // position of this particular player on the board
+    private String tokenColor;
+    private int position;
+    private boolean isFirstTurn; // New variable to track first turn
 
-    public Player(String name, String color) {
-        // constructor (should prob initialize with token color too)
+    public Player(String name, String tokenColor) {
         this.name = name;
-        this.color = color;
-        this.position = 0;
-    }
-
-    public void moveTo(int newPosition) {
-        this.position = newPosition; // updates player position here
-    }
-
-    // getters here
-    public int getPosition() {
-        return position;
+        this.tokenColor = tokenColor;
+        this.position = 0; // All players start at position 0
+        this.isFirstTurn = true; // Initially, the player is on their first turn
     }
 
     public String getName() {
         return name;
     }
 
-    public String getColor() {
-        return color;
+    public String getTokenColor() {
+        return tokenColor;
     }
 
-    @Override
-    public String toString() {
-        return name + " (Token: " + color + ") at space " + position;
+    public int getPosition() {
+        return position;
     }
-    public void move(int spaces) {
-        this.position += spaces;
-        if (this.position > 19) {  // Ensure player doesn't go beyond the last space
-            this.position = 19;
-        }
+
+    public void moveTo(int position) {
+        this.position = position;
+    }
+
+    // Method to mark the player’s turn as not first anymore
+    public void setFirstTurn(boolean isFirstTurn) {
+        this.isFirstTurn = isFirstTurn;
+    }
+
+    // Method to check if it's the player's first turn
+    public boolean isFirstTurn() {
+        return isFirstTurn;
     }
 }
