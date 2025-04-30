@@ -4,33 +4,34 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class SplashScreen extends JFrame {
-    
+
     public SplashScreen() {
         // Set up the splash screen
         setTitle("Welcome to Gonzaga Candy Land");
-        setSize(600, 400); // Make the window larger
-        setLocationRelativeTo(null); // Center the window
+        setSize(600, 400);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Create the splash screen panel
-        JPanel panel = new JPanel();
-        panel.setLayout(new BorderLayout());
-        panel.setBackground(Color.BLUE); // Set the background color to blue
+        // Load the image and set it as the background
+        ImageIcon backgroundImage = new ImageIcon("path/to/your/image.jpeg"); // Replace with the actual path to the image
+        JLabel backgroundLabel = new JLabel(backgroundImage);
+        backgroundLabel.setLayout(new BorderLayout()); // Allows adding components over the image
+        backgroundLabel.setOpaque(true);
 
-        // Create a label and set the text color to red
-        JLabel label = new JLabel("Welcome to Gonzaga Candy Land!", SwingConstants.CENTER);
-        label.setFont(new Font("Arial", Font.BOLD, 30)); // Increase font size
-        label.setForeground(Color.RED); // Set text color to red
+        // Create a label with the welcome message
+        JLabel textLabel = new JLabel("Welcome to Gonzaga Candy Land!", SwingConstants.CENTER);
+        textLabel.setFont(new Font("Arial", Font.BOLD, 30));
+        textLabel.setForeground(Color.WHITE); // Ensure text color contrasts with the image
 
-        // Add the label to the panel
-        panel.add(label, BorderLayout.CENTER);
-        add(panel);
+        // Add the text label over the background image
+        backgroundLabel.add(textLabel, BorderLayout.CENTER);
+        add(backgroundLabel);
 
         // Make the splash screen visible
         setVisible(true);

@@ -65,6 +65,7 @@ public class PlayCandyLand {
     // set up players (2-4) and enter their names
     private static void setupPlayers() {
         int numPlayers;
+       new NameInputScreen(); 
         do {
             System.out.print("Enter number of players (2-4): ");
             numPlayers = Integer.parseInt(scanner.nextLine());
