@@ -59,6 +59,7 @@ public class SplashScreen extends JFrame {
                 // When the Start Game button is clicked, close the splash screen
                 dispose(); // Close the splash screen
                 new NameInputScreen(); // Open the NameInputScreen
+                
             }
         });
         panel.add(startButton);
